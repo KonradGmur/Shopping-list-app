@@ -9,41 +9,48 @@ class App extends Component {
     items: [],
     currentItem: {
       text: '',
-      key: '',
       number: '',
-      select: '',
+      select: 'vegetables',
     }
   }
 
-  handleInput = (e) => {
-    this.setState({
-      currentItem: {
-        text: e.target.value,
-        key: Date.now(),
-      }
-    })
-  }
-  handleNumber = (e) => {
-    this.setState({
-      currentItem: {
-        number: e.target.value,
-        key: Date.now(),
-      }
-    })
-  }
-  handleChange = (e) => {
-    this.setState({
-      currentItem: {
-        select: e.target.value,
-      }
-    });
-  }
+  // handleInput = (e) => {
+  //   this.setState({
+  //     currentItem: {
+  //       text: e.target.value,
+  //       key: Date.now(),
+  //     }
+  //   })
+  // }
+  // handleNumber = (e) => {
+  //   this.setState({
+  //     currentItem: {
+  //       number: e.target.value,
+  //       key: Date.now(),
+  //     }
+  //   })
+  // }
+  // handleChange = (e) => {
+  //   this.setState({
+  //     currentItem: {
+  //       select: e.target.value,
+  //     }
+  //   });
+  // }
 
+  handleChange = (e) => {
+    console.log(e.target.name);
+
+    this.setState({
+      currentItem: {
+        [e.target.name]: e.target.value
+      }
+    })
+  }
   addItem = (e) => {
     e.preventDefault();
     const newItem = this.state.currentItem;
     console.log(newItem);
-
   }
 
   render() {
@@ -53,9 +60,9 @@ class App extends Component {
           <form id="to-do-list" onSubmit={this.addItem}>
             <label htmlFor="text">
               <h2>Lista zakupów: </h2>
-              <input type="text" placeholder="Wpisz produkt " value={this.state.currentItem.text} onChange={this.handleInput} />
-              <input type="number" placeholder="Podaj ilość " value={this.state.currentItem.number} onChange={this.handleNumber} />
-              <select value={this.state.currentItem.select} onChange={this.handleChange}>
+              <input name="text" type="text" placeholder="Wpisz produkt " value={this.state.currentItem.text} onChange={this.handleChange} />
+              <input name="number" type="number" placeholder="Podaj ilość " value={this.state.currentItem.number} onChange={this.handleChange} />
+              <select name="select" value={this.state.currentItem.select} onChange={this.handleChange}>
                 <option value="vegetables">warzywa</option>
                 <option value="fruits">owoce</option>
                 <option value="bread">pieczywo</option>
