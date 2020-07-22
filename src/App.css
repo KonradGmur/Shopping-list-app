@@ -5,7 +5,7 @@ body {
 .App {
     background-color: #3f3160;
     min-height: 700px;
-    width: 500px;
+    width: 600px;
     margin: 40px auto;
     padding: 10px;
 }
@@ -16,3 +16,44 @@ h2 {
     text-transform: uppercase;
 }
 
+#to-do-list input {
+    background-color: rgb(246, 152, 152);
+    border: 0;
+    width: 150px;
+    height: 40px;
+    padding: 0 20px;
+    margin: 5px;
+    font-size: 15px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+#to-do-list input::placeholder {
+    color: black;
+}
+
+#to-do-list input:focus,
+#to-do-list button:focus,
+#to-do-list select:focus {
+    outline: none;
+}
+
+#to-do-list button {
+    height: 50px;
+    width: 80px;
+    margin: 5px;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(236, 127, 26);
+    font-weight: bold;
+    color: #fff;
+}
+
+#to-do-list select {
+    background-color: rgb(246, 152, 152);
+    height: 30px;
+    width: 100px;
+    margin: 5px;
+    border: 0;
+    border-radius: 5px;
+}
