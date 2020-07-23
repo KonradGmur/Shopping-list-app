@@ -20,8 +20,10 @@ class App extends Component {
     console.log(e.target.name);
     this.setState({
       currentItem: {
-        [e.target.name]: e.target.value,
-        key: Date.now()
+        // [e.target.name]: e.target.value,
+        number: e.target.value,
+        select: e.target.value,
+        key: Date.now(),
       }
     })
   }
@@ -29,6 +31,8 @@ class App extends Component {
   addItem = (e) => {
     e.preventDefault();
     const newItem = this.state.currentItem;
+    console.log(newItem);
+
     if (newItem.text !== "") {
       const items = [...this.state.items, newItem];
       this.setState({
@@ -50,7 +54,7 @@ class App extends Component {
     })
   }
   setUpdate = (text, key, number, select) => {
-    console.log("items:" + this.state.items);
+    // console.log("items:" + this.state.items);
     const items = this.state.items;
     items.map(item => {
       if (item.key === key) {
